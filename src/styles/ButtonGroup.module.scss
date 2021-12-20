@@ -1,0 +1,41 @@
+
+.buttonGroup {
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: auto;
+
+}
+
+.button {
+
+    letter-spacing: 0.5px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #e1e5eb;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    display: flex;
+    height: 2rem;
+    min-width: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+
+    svg {
+        font-size: 1.3rem;
+    }
+}
+
+.buttonActive{
+
+    @extend .button;
+
+    border-color: #007bff;
+    background-color: #007bff;
+    color: #fff;
+    opacity: 1;
+}

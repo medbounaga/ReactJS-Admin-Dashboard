@@ -1,0 +1,22 @@
+.performanceWidget {
+    width: 5.3rem;
+    margin: 0;
+    font-weight: 400;
+    padding: 0.3rem 0rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.48rem;
+    align-content: center;
+    align-items: center;
+    color: white;
+}
+
+.negativePerformace{
+    @extend .performanceWidget;
+    background: #f15151;
+}
+
+.positivePerformace{
+    @extend .performanceWidget;
+   background: #48c162;
+}

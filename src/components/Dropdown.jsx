@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
+import styles from "../styles/Dropdown.module.scss";
+
 
 export function Dropdown({
+  className = '',
   options,
   callback,
   selectedOption,
@@ -12,14 +15,14 @@ export function Dropdown({
 
   return (
     <div
-      className="dropdown"
+      className={`${styles.dropdown} ${className}`}
       tabIndex={0}
       onBlur={(e) => {
         setIsActive(false);
       }}
     >
       <div
-        className="dropdown-btn"
+        className={styles.dropdownBtn}
         onClick={(e) => {
           setIsActive(!isActive);
         }}
@@ -28,11 +31,11 @@ export function Dropdown({
         <FaCaretDown />
       </div>
       {isActive && (
-        <div className="dropdown-content">
+        <div className={styles.dropdownContent}>
           {options.map((option, index) => (
             <div
               key={index}
-              className="dropdown-item"
+              className={styles.dropdownItem}
               onClick={(e) => {
                 callback(option.value);
                 setSelectedOption(Object.assign({}, option));

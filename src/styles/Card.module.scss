@@ -1,0 +1,88 @@
+@import "globals.scss";
+
+.card {
+
+    position: relative;
+    word-wrap: break-word;  
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: none;
+    border-radius: 0.6rem;
+    min-width: 0;
+    width: 100%;
+    background-clip: border-box;  
+    box-shadow: 0 2px 0 rgb(90 97 105 / 11%), 0 4px 8px rgb(90 97 105 / 12%), 0 10px 10px rgb(90 97 105 / 6%), 0 7px 70px rgb(90 97 105 / 10%);
+    
+}
+
+
+.cardHeader{
+
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 500;
+    color: rgb(134 141 149);
+    }
+
+}
+
+.cardTitle{
+    @extend .h6   
+}
+
+.cardFooter{
+
+    padding: 0.5rem 1rem;
+    margin-top: 0;
+    border-top: 1px solid rgba(0,0,0,.125);
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0 0 0.6rem 0.6rem;
+}
+
+.cardFooter,
+.cardHeader{
+    padding: 1rem;
+}
+
+.cardHeader:first-child {
+    border-radius: 0.6rem 0.6rem 0 0;
+}
+
+.cardHeader:nth-child(2) {
+
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #e1e5eb;
+    padding: 0.5rem;
+}
+
+
+.cardSection {
+
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    margin-bottom: 0;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.cardBody, 
+.cardFooter, 
+.cardHeader {
+
+    padding: 1rem;
+}
+

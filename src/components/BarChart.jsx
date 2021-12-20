@@ -21,10 +21,20 @@ ChartJS.register(
 );
 
 export const options = {
+  maintainAspectRatio: false,
   plugins: {
     title: {
+      display: false,
+      text: '',
+    },
+    legend: {
       display: true,
-      text: 'Chart.js Bar Chart - Stacked',
+      position: 'top',
+      labels: {
+          fontColor: '#333',
+          usePointStyle: true,
+          pointStyle: 'rectRounded',
+      }
     },
   },
   responsive: true,
@@ -61,6 +71,10 @@ export const data = {
   ],
 };
 
-export function BarChart() {
-  return <Bar options={options} data={data} />;
+export function BarChart({height='270px', width='100%'}) {
+  return(
+  <div style={{height: height, width: width}}>
+    <Bar options={options} data={data} />
+  </div> 
+  )
 }

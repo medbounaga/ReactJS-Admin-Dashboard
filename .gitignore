@@ -22,3 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+src/styles/boot.scss
+src/styles/bootstrap.css
+src/bootstrap1.css
