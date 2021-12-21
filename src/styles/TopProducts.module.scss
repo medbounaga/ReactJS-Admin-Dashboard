@@ -1,0 +1,32 @@
+.info .title {
+    font-size: .9375rem;
+    color: #364a63;
+    margin-bottom: 0.25rem;
+}
+
+.info .price {
+    font-size: .8125rem;
+    color: #8094ae;
+    margin-bottom: 1px;
+}
+
+.total .amount {
+    font-size: .9375rem;
+    color: #364a63;
+    margin-bottom: 0.25rem;
+}
+
+.total .count {
+    font-size: .8125rem;
+    color: #8094ae;
+    margin-bottom: 1px;
+}
+
+.thumb{
+    width: 44px;
+    margin-right: 1rem;
+
+    img {
+        border-radius: 4px;
+    }
+}
