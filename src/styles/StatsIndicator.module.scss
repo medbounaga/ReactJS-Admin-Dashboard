@@ -13,10 +13,12 @@
 
 .negativePerformace{
     @extend .performanceWidget;
-    background: #f15151;
+    color: #ef6767;
+    background-color: rgba(239,103,103,.18);
 }
 
 .positivePerformace{
     @extend .performanceWidget;
-   background: #48c162;
+    color: #34c38f;
+    background-color: rgba(52,195,143,.18);
 }

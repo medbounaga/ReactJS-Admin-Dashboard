@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaCaretDown } from "react-icons/fa";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import styles from "../styles/Dropdown.module.scss";
 
 
@@ -28,7 +28,7 @@ export function Dropdown({
         }}
       >
         {selectedOption.label}
-        <FaCaretDown />
+        <MdKeyboardArrowDown />
       </div>
       {isActive && (
         <div className={styles.dropdownContent}>

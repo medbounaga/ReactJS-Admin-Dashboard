@@ -8,18 +8,7 @@ export default function Dashboard() {
   return (
 
     <div className="container" >
-      <div className="row row-cols-2 row-cols-sm-1" >
-        <div className="col">
-          <PerformanceTable />
-        </div>
-        <div className="col">
-          <PerformanceTable />
-        </div>
-      </div>
-      <div className="row row-cols-2 row-cols-sm-1" >
-        <div className="col">
-          <PerformanceTable />
-        </div>
+      <div className="row row-cols-1 row-cols-sm-1" >
         <div className="col">
           <PerformanceTable />
         </div>

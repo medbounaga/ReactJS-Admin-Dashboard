@@ -1,0 +1,139 @@
+{
+    "saleOrdersCount": [
+        {
+            "period": "day",
+            "interval": 2,   
+            "data": {
+                "period_0": 10,
+                "period_1": 31
+            }
+        },
+        {   
+            "period": "week",
+            "interval": 2,
+            "data": {
+                "period_0": 38,
+                "period_1": 62
+            }
+        },
+        {   
+            "period": "month",
+            "interval": 2,
+            "data": {
+                "period_0": 12,
+                "period_1": 56
+            }
+        },
+        {   
+            "period": "quarter",
+            "interval": 2,
+            "data": {
+                "period_0": 38,
+                "period_1": 26
+            }
+        }
+    ],
+    "salesAmount": [
+        {
+            
+            "period": "day",
+            "interval": 2,   
+            "data": {
+                "period_0": 20,
+                "period_1": 33
+            }
+        },
+        {   
+            "period": "week",
+            "interval": 2,
+            "data": {
+                "period_0": 38,
+                "period_1": 62
+            }
+        },
+        {   
+            "period": "month",
+            "interval": 2,
+            "data": {
+                "period_0": 12,
+                "period_1": 56
+            }
+        },
+        {   
+            "period": "quarter",
+            "interval": 2,
+            "data": {
+                "period_0": 38,
+                "period_1": 26
+            }
+        }
+    ],"cogs": [
+        {
+            
+            "period": "day",
+            "interval": 2,   
+            "data": {
+                "period_0": 21,
+                "period_1": 80
+            }
+        },
+        {   
+            "period": "week",
+            "interval": 2,
+            "data": {
+                "period_0": 38,
+                "period_1": 62
+            }
+        },
+        {   
+            "period": "month",
+            "interval": 2,
+            "data": {
+                "period_0": 22,
+                "period_1": 85
+            }
+        },
+        {   
+            "period": "quarter",
+            "interval": 2,
+            "data": {
+                "period_0": 86,
+                "period_1": 6
+            }
+        }
+    ],"profit": [
+        {
+            
+            "period": "day",
+            "interval": 2,   
+            "data": {
+                "period_0": 59,
+                "period_1": 37
+            }
+        },
+        {   
+            "period": "week",
+            "interval": 2,
+            "data": {
+                "period_0": 10,
+                "period_1": 20
+            }
+        },
+        {   
+            "period": "month",
+            "interval": 2,
+            "data": {
+                "period_0": 12,
+                "period_1": 56
+            }
+        },
+        {   
+            "period": "quarter",
+            "interval": 2,
+            "data": {
+                "period_0": 98,
+                "period_1": 10
+            }
+        }
+    ]
+}

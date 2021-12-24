@@ -19,17 +19,18 @@
 
 .cardHeader{
 
-    padding: 0.5rem 1rem;
+    
     margin-bottom: 0;
     border-bottom: 1px solid rgba(0,0,0,.125);
     background-color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
-    color: rgb(134 141 149);
+    color: #364a63;
     }
 
 }
