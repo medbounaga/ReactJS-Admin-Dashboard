@@ -2,138 +2,524 @@
     "saleOrdersCount": [
         {
             "period": "day",
-            "interval": 2,   
-            "data": {
-                "period_0": 10,
-                "period_1": 31
-            }
+            "intervals": 10,
+            "order": "decreasing",
+            "data": [
+                39,
+                73,
+                52,
+                94,
+                98,
+                87,
+                56,
+                52,
+                94,
+                67
+            ]
         },
-        {   
+        {
             "period": "week",
-            "interval": 2,
-            "data": {
-                "period_0": 38,
-                "period_1": 62
-            }
+            "intervals": 8,
+            "order": "decreasing",
+            "data": [
+                168,
+                121,
+                170,
+                158,
+                109,
+                181,
+                190,
+                166
+            ]
         },
-        {   
+        {
             "period": "month",
-            "interval": 2,
-            "data": {
-                "period_0": 12,
-                "period_1": 56
-            }
+            "intervals": 6,
+            "order": "decreasing",
+            "data": [
+                274,
+                254,
+                283,
+                285,
+                265,
+                283
+            ]
         },
-        {   
+        {
             "period": "quarter",
-            "interval": 2,
-            "data": {
-                "period_0": 38,
-                "period_1": 26
-            }
+            "intervals": 4,
+            "order": "decreasing",
+            "data": [
+                471,
+                480,
+                438,
+                426
+            ]
         }
     ],
     "salesAmount": [
         {
-            
             "period": "day",
-            "interval": 2,   
-            "data": {
-                "period_0": 20,
-                "period_1": 33
-            }
+            "intervals": 10,
+            "order": "decreasing",
+            "data": [
+                21,
+                93,
+                55,
+                24,
+                51,
+                45,
+                57,
+                89,
+                29,
+                44
+            ]
         },
-        {   
+        {
             "period": "week",
-            "interval": 2,
-            "data": {
-                "period_0": 38,
-                "period_1": 62
-            }
+            "intervals": 8,
+            "order": "decreasing",
+            "data": [
+                191,
+                185,
+                127,
+                113,
+                103,
+                166,
+                145,
+                181
+            ]
         },
-        {   
+        {
             "period": "month",
-            "interval": 2,
-            "data": {
-                "period_0": 12,
-                "period_1": 56
-            }
+            "intervals": 6,
+            "order": "decreasing",
+            "data": [
+                207,
+                291,
+                291,
+                246,
+                228,
+                250
+            ]
         },
-        {   
+        {
             "period": "quarter",
-            "interval": 2,
-            "data": {
-                "period_0": 38,
-                "period_1": 26
-            }
+            "intervals": 4,
+            "order": "decreasing",
+            "data": [
+                475,
+                417,
+                412,
+                494
+            ]
         }
-    ],"cogs": [
+    ],
+    "cogs": [
+        {
+            "period": "day",
+            "intervals": 10,
+            "order": "decreasing",
+            "data": [
+                41,
+                71,
+                69,
+                83,
+                33,
+                61,
+                35,
+                37,
+                86,
+                84
+            ]
+        },
+        {
+            "period": "week",
+            "intervals": 8,
+            "order": "decreasing",
+            "data": [
+                168,
+                104,
+                129,
+                133,
+                142,
+                168,
+                191,
+                172
+            ]
+        },
+        {
+            "period": "month",
+            "intervals": 6,
+            "order": "decreasing",
+            "data": [
+                247,
+                207,
+                222,
+                202,
+                295,
+                203
+            ]
+        },
+        {
+            "period": "quarter",
+            "intervals": 4,
+            "order": "decreasing",
+            "data": [
+                454,
+                441,
+                429,
+                430
+            ]
+        }
+    ],
+    "profit": [
+        {
+            "period": "day",
+            "intervals": 10,
+            "order": "decreasing",
+            "data": [
+                39,
+                73,
+                52,
+                94,
+                98,
+                87,
+                56,
+                52,
+                94,
+                67
+            ]
+        },
+        {
+            "period": "week",
+            "intervals": 8,
+            "order": "decreasing",
+            "data": [
+                175,
+                131,
+                173,
+                183,
+                164,
+                115,
+                150,
+                192
+            ]
+        },
+        {
+            "period": "month",
+            "intervals": 6,
+            "order": "decreasing",
+            "data": [
+                278,
+                226,
+                217,
+                224,
+                268,
+                279
+            ]
+        },
+        {
+            "period": "quarter",
+            "intervals": 4,
+            "order": "decreasing",
+            "data": [
+                439,
+                431,
+                431,
+                459
+            ]
+        }
+    ],
+    "topProductSales": [
+        {
+            "period": "day",
+            "top": 5,
+            "data": [
+                {
+                    "position": 1,
+                    "product": {
+                        "name": "Headset Standard",
+                        "imgUrl": "headset-standard",
+                        "price": 43,
+                        "soldUnits": 76,
+                        "salesValue": 254
+                    }
+                },
+                {
+                    "position": 2,
+                    "product": {
+                        "name": "iPad Mini",
+                        "imgUrl": "iPad-mini",
+                        "price": 56,
+                        "soldUnits": 23,
+                        "salesValue": 634
+                    }
+                },
+                {
+                    "position": 3,
+                    "product": {
+                        "name": "Laptop Customized",
+                        "imgUrl": "laptop-customized",
+                        "price": 23,
+                        "soldUnits": 26,
+                        "salesValue": 631
+                    }
+                },
+                {
+                    "position": 4,
+                    "product": {
+                        "name": "Mouse Wireless",
+                        "imgUrl": "mouse-wireless",
+                        "price": 154,
+                        "soldUnits": 83,
+                        "salesValue": 358
+                    }
+                },
+                {
+                    "position": 5,
+                    "product": {
+                        "name": "Router R430",
+                        "imgUrl": "router-r430",
+                        "price": 75,
+                        "soldUnits": 53,
+                        "salesValue": 598
+                    }
+                }
+            ]
+        },
+        {
+            "period": "week",
+            "top": 5,
+            "data": [
+                {
+                    "position": 1,
+                    "product": {
+                        "name": "RAM SR5",
+                        "imgUrl": "ram-sr5",
+                        "price": 29,
+                        "soldUnits": 55,
+                        "salesValue": 561
+                    }
+                },
+                {
+                    "position": 2,
+                    "product": {
+                        "name": "iPad Mini",
+                        "imgUrl": "iPad-mini",
+                        "price": 56,
+                        "soldUnits": 67,
+                        "salesValue": 1209
+                    }
+                },
+                {
+                    "position": 3,
+                    "product": {
+                        "name": "Router R430",
+                        "imgUrl": "router-r430",
+                        "price": 23,
+                        "soldUnits": 65,
+                        "salesValue": 875
+                    }
+                },
+                {
+                    "position": 4,
+                    "product": {
+                        "name": "Mouse Wireless",
+                        "imgUrl": "mouse-wireless",
+                        "price": 154,
+                        "soldUnits": 99,
+                        "salesValue": 437
+                    }
+                },
+                {
+                    "position": 5,
+                    "product": {
+                        "name": "Switch 24 Ports",
+                        "imgUrl": "switch-24-ports",
+                        "price": 75,
+                        "soldUnits": 78,
+                        "salesValue": 2178
+                    }
+                }
+            ]
+        }
+    ],
+    "topCustomerSales": [
+        {
+            "period": "day",
+            "top": 5,
+            "data": [
+                {
+                    "position": 1,
+                    "customer": {
+                        "name": "Avitica corp",
+                        "email": "support@avitica.com",
+                        "imgUrl": "partner-1",
+                        "orders": 43,
+                        "salesValue": 256
+                    }
+                },
+                {
+                    "position": 2,
+                    "customer": {
+                        "name": "Avidzy Ltd",
+                        "email": "contact@avidzy.com",
+                        "imgUrl": "partner-2",
+                        "orders": 43,
+                        "salesValue": 257
+                    }
+                },
+                {
+                    "position": 3,
+                    "customer": {
+                        "name": "Keenfan",
+                        "email": "help@keenfan.com",
+                        "imgUrl": "partner-3",
+                        "orders": 43,
+                        "salesValue": 958
+                    }
+                },
+                {
+                    "position": 4,
+                    "customer": {
+                        "name": "Tyndo",
+                        "email": "support@tyndo.com",
+                        "imgUrl": "partner-4",
+                        "orders": 43,
+                        "salesValue": 259
+                    }
+                },
+                {
+                    "position": 5,
+                    "customer": {
+                        "name": "Rakyoo",
+                        "email": "contact@rakyoo.com",
+                        "imgUrl": "partner-5",
+                        "orders": 43,
+                        "salesValue": 252
+                    }
+                }
+            ]
+        },
+        {
+            "period": "week",
+            "top": 5,
+            "data": [
+                {
+                    "position": 1,
+                    "customer": {
+                        "name": "Avitica corp",
+                        "email": "support@avitica.com",
+                        "imgUrl": "partner-1",
+                        "orders": 43,
+                        "salesValue": 256
+                    }
+                },
+                {
+                    "position": 2,
+                    "customer": {
+                        "name": "Avidzy Ltd",
+                        "email": "contact@avidzy.com",
+                        "imgUrl": "partner-2",
+                        "orders": 43,
+                        "salesValue": 657
+                    }
+                },
+                {
+                    "position": 3,
+                    "customer": {
+                        "name": "Keenfan",
+                        "email": "help@keenfan.com",
+                        "imgUrl": "partner-3",
+                        "orders": 43,
+                        "salesValue": 258
+                    }
+                },
+                {
+                    "position": 4,
+                    "customer": {
+                        "name": "Tyndo",
+                        "email": "support@tyndo.com",
+                        "imgUrl": "partner-4",
+                        "orders": 43,
+                        "salesValue": 359
+                    }
+                },
+                {
+                    "position": 5,
+                    "customer": {
+                        "name": "Rakyoo",
+                        "email": "contact@rakyoo.com",
+                        "imgUrl": "partner-5",
+                        "orders": 43,
+                        "salesValue": 252
+                    }
+                }
+            ]
+        }
+    ],
+    "sales": [
+        {
+            "period": "last day",
+            "intervals": 10,
+            "data": [
+                {
+                    "position": 1,
+                    "product": {
+                        "name": "Headset Standard",
+                        "img": "headset-standard",
+                        "price": 43,
+                        "soldUnits": 76,
+                        "salesValue": 254
+                    }
+                }
+            ]
+        }
+    ],
+    "transations": [
         {
             
-            "period": "day",
-            "interval": 2,   
-            "data": {
-                "period_0": 21,
-                "period_1": 80
-            }
-        },
-        {   
-            "period": "week",
-            "interval": 2,
-            "data": {
-                "period_0": 38,
-                "period_1": 62
-            }
-        },
-        {   
-            "period": "month",
-            "interval": 2,
-            "data": {
-                "period_0": 22,
-                "period_1": 85
-            }
-        },
-        {   
-            "period": "quarter",
-            "interval": 2,
-            "data": {
-                "period_0": 86,
-                "period_1": 6
-            }
-        }
-    ],"profit": [
-        {
-            
-            "period": "day",
-            "interval": 2,   
-            "data": {
-                "period_0": 59,
-                "period_1": 37
-            }
-        },
-        {   
-            "period": "week",
-            "interval": 2,
-            "data": {
-                "period_0": 10,
-                "period_1": 20
-            }
-        },
-        {   
-            "period": "month",
-            "interval": 2,
-            "data": {
-                "period_0": 12,
-                "period_1": 56
-            }
-        },
-        {   
-            "period": "quarter",
-            "interval": 2,
-            "data": {
-                "period_0": 98,
-                "period_1": 10
-            }
+            "intervals": 10,
+            "currency": "USD",
+            "data": [
+                {                   
+                    "orderNo": "#76295",
+                    "customer": "Keenfan",
+                    "imgUrl": "partner-5",
+                    "date": "11/22/2019",
+                    "ref": "PAY-2309232",
+                    "amount": "4596.75",                   
+                    "status": "Pending"                    
+                },
+                {                   
+                    "orderNo": "#76290",
+                    "customer": "Tyndo",
+                    "imgUrl": "partner-1",
+                    "date": "11/22/2020",
+                    "ref": "PAY-2309232",
+                    "amount": "4596.75",                   
+                    "status": "Cancelled"                    
+                },
+                {                   
+                    "orderNo": "#76293",
+                    "customer": "Avidzy Ltd",
+                    "imgUrl": "partner-2",
+                    "date": "09/23/2021",
+                    "ref": "PAY-2309232",
+                    "amount": "4596.75",                   
+                    "status": "Paid"                    
+                },
+                {                   
+                    "orderNo": "#76296",
+                    "customer": "Rakyoo",
+                    "imgUrl": "partner-3",
+                    "date": "11/06/2021",
+                    "ref": "PAY-2309232",
+                    "amount": "4596.75",                   
+                    "status": "Paid"                    
+                }
+            ]
         }
     ]
 }
