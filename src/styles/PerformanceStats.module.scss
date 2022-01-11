@@ -1,0 +1,161 @@
+@import "../styles/globals.scss";
+
+.wrapper {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.singleData {
+
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px #0043ff14;
+
+    padding: 1rem;
+    background: #f0f2f5a6;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    margin-right: 0px;
+    flex: 0 0 21%;
+    max-width: 21%;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+
+
+    .info {
+        flex-grow: 1;
+    }
+
+
+
+    .info .title h3 {
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: #060607;
+    }
+
+    .info .value {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #364a63;
+    }
+
+
+    .info .title,
+    .info .value {
+        margin-bottom: 10px;
+    }
+
+
+    .info .desc {
+        white-space: nowrap;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        font-size: .82rem;
+    }
+
+
+    .thumb {
+        flex-shrink: 0;
+        margin-left: 0px;
+        position: absolute;
+        top: 14px;
+        right: -44px;
+    }
+
+    @include query(tablet) {
+        .thumb {
+            right: -38px;
+        }
+    }
+
+    
+
+
+    .thumb>* {
+
+        font-size: 3.4rem;
+        color: rgb(53, 162, 235);
+    }
+
+    @include query(mobile) {
+        .thumb>* {
+
+            font-size: 2.4rem;
+            color: rgb(53, 162, 235);
+        }
+    }
+
+}
+
+
+
+@include query(tablet) {
+    .singleData {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+}
+
+@include query(mobile) {
+    .singleData {
+        
+        flex: 0 0 auto;
+        width: 95%;
+        max-width: 95%;
+    }
+}
+
+
+
+.performanceWidget {
+    width: auto;
+    margin-right: 5px;
+    font-weight: 400;
+    padding: 0.15rem 0.4rem;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    border-radius: 0.48rem;
+    align-content: center;
+    align-items: center;
+    color: white;
+}
+
+.negativePerformace {
+    @extend .performanceWidget;
+    color: #ef6767;
+    background-color: rgba(239, 103, 103, .18);
+}
+
+.positivePerformace {
+    @extend .performanceWidget;
+    color: #34c38f;
+    background-color: rgba(52, 195, 143, .18);
+}
+
+
+
+.donutChart {
+    width:123px;
+    height:70px;
+}
+
+
+@include query(tablet) {
+    .donutChart {
+        width: 115px;
+        height: 78px;
+    }
+}
+
+
+
+
