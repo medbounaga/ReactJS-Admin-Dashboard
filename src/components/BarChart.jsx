@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,7 +8,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
+
 
 ChartJS.register(
   CategoryScale,
@@ -20,61 +19,106 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  maintainAspectRatio: false,
-  plugins: {
-    title: {
-      display: false,
-      text: '',
-    },
-    legend: {
-      display: true,
-      position: 'top',
-      labels: {
+export function BarChart({ data, height = '270px', width = '100%' }) {
+  const labels = data.labels;
+
+  const colors = [
+    'rgb(255, 99, 132)',
+    'rgb(75, 192, 192)',
+    'rgb(53, 162, 235)',
+  ];
+
+  const datasets = data.stats.map((stat, index) => {
+    return {
+      label: stat.label,
+      data: stat.data,
+      backgroundColor: colors[index],
+      maxBarThickness: 10,
+      categoryPercentage: 0.6,
+      hoverBorderColor: 'rgb(251 251 251)',
+      hoverBorderWidth: 1,
+    };
+  });
+
+  const options = {
+ 
+    maintainAspectRatio: false,
+    plugins: {
+      title: {
+        display: false,
+        text: '',
+      },
+      legend: {
+        display: true,
+        position: 'top',
+        labels: {
           fontColor: '#333',
           usePointStyle: true,
-          pointStyle: 'rectRounded',
-      }
-    },
-  },
-  responsive: true,
-  scales: {
-    x: {
-      stacked: true,
-    },
-    y: {
-      stacked: true,
-    },
-  },
-};
+          pointStyle: 'circle',
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            let label = context.dataset.label || '';
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+            if (label) {
+              label += ': ';
+            }
+            if (context.parsed.y !== null) {
+              label += new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              }).format(context.parsed.y);
+            }
+            return label;
+          },
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: false,
+        grid: {
+          display: true,
+          drawBorder: true,
+          drawOnChartArea: true,
+          drawTicks: true,
+          color: 'rgb(249 249 249)',
+        },
+      },
+      y: {
+        stacked: false,
+        grid: {
+          drawBorder: false,
+          color: function (context) {
+            if (context.tick.value >= 0) {
+              return 'rgb(243 243 243)';
+            } else if (context.tick.value < 0) {
+              return 'rgb(243 243 243)';
+            }
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Sales',
-      data: labels.map(() => faker.datatype.number({ min: 100, max: 1000 })),
-      backgroundColor: 'rgb(255, 99, 132)',
+            return '#000000';
+          },
+        },
+      },
     },
-    {
-      label: 'Profit',
-      data: labels.map(() => faker.datatype.number({ min: 100, max: 1000 })),
-      backgroundColor: 'rgb(75, 192, 192)',
+    interaction: {
+      intersect: false,
+      mode: 'index',
+      axis: 'x',
     },
-    {
-      label: 'Cogs',
-      data: labels.map(() => faker.datatype.number({ min: 100, max: 1000 })),
-      backgroundColor: 'rgb(53, 162, 235)',
-    },
-  ],
-};
+  };
 
-export function BarChart({height='270px', width='100%'}) {
-  return(
-  <div style={{height: height, width: width}}>
-    <Bar options={options} data={data} />
-  </div> 
-  )
+  const formatedData = {
+    labels,
+    datasets,
+  };
+
+  return (
+    <div style={{ height: height, width: width }}>
+      <Bar data={formatedData} options={options} />
+    </div>
+  );
 }
