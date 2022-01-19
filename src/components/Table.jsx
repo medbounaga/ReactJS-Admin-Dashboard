@@ -1,7 +1,7 @@
 import styles from "../styles/Table.module.scss"
 
 export const Table = ({ children, ...restProps }) => {
-    return <table className={styles.table} {...restProps}>{children}</table>;
+    return <table className={`${styles.table} ${styles.tableResponsive}`} {...restProps}>{children}</table>;
 };
 
 Table.Head = ({ children, ...restProps }) => {
