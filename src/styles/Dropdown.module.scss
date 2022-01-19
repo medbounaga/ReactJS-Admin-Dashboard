@@ -2,65 +2,90 @@
 
 
 .dropdown {
-    width: auto;
-    user-select: none;
-    margin: 0px;
-    position: relative;
-    
-    
+
+  user-select: none;
+  margin: 0px;
+  position: relative;
 }
 
 .dropdownBtn {
 
-    font-size: 0.75rem;
-    border: 1px solid #e1e5eb;
-    border-radius: 0.25rem;
-    padding: 0.375rem 0.75rem 0.375rem 0.75rem;
-    background: #fff;
-    box-shadow: none;
-    font-weight: 400;
-    color: #333;  
-    cursor: pointer;
-    display: flex;
-    height: 2rem;
-    min-width: 2.2rem;
-    align-items: center;
-    justify-content: space-between;
+  color: $active-text-color;
+  background-color: $active-color ;
+  border: 1px solid #e1e5eb;
+  border-radius: 0.2rem;
+  padding: 0.25rem 0.75rem;
 
-    svg {
-      margin-left: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  min-width: 2.2rem;
+  align-items: center;
+  justify-content: space-between;
 
-    }
+  svg {
+    margin-left: 8px;
   }
-  
-  .dropdownContent {
-    position: absolute;
-    top: calc(100% + 5px) ;
-    left: 0;
-    padding: 10px;
-    background: #fff;
-    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
-    font-weight: 500;
-    color: #333;
-    width: auto;
-    z-index:2;
 
-    
 
-    
-    
+  &:not(:disabled):hover {
+    color: #fff;
+    background: #526484;
+    border-color: #526484;
   }
-  
-  .dropdownItem {
-    padding: 10px;
-    font-size: 0.75rem;
-    width: auto;
-    cursor: pointer;
-    transition: all 0.2s;
+}
 
-    
+
+.dropdownBtn,
+.dropdownItem {
+  color: $text-color-secendary;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+}
+
+
+@include query(mobile) {
+  .dropdownBtn,
+  .dropdownItem { 
+
+      font-size: 0.65rem;
   }
-  
-  .dropdownItem:hover {
-    background: #f4f4f4;
-  }
+}
+
+.dropdownContent {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  z-index: 2;
+  padding: 0.5rem 0;
+
+}
+
+.dropdownItem {
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all .4s;
+  line-height: 1.3rem;
+  position: relative;
+  padding: 0.5rem 0.5rem;
+
+}
+
+.dropdownItem:hover {
+  background: #f4f4f4;
+}
+
+
+.dropdownItem.active::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+}

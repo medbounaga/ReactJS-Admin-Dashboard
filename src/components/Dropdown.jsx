@@ -4,12 +4,13 @@ import styles from "../styles/Dropdown.module.scss";
 
 
 export function Dropdown({
+  width="200",
   className = '',
   options,
   callback,
   selectedOption,
   setSelectedOption,
-  restProps
+  ...restProps
 }) {
   const [isActive, setIsActive] = useState(false);
 
@@ -20,6 +21,7 @@ export function Dropdown({
       onBlur={(e) => {
         setIsActive(false);
       }}
+      {...restProps}
     >
       <div
         className={styles.dropdownBtn}
@@ -31,11 +33,11 @@ export function Dropdown({
         <MdKeyboardArrowDown />
       </div>
       {isActive && (
-        <div className={styles.dropdownContent}>
+        <div className={styles.dropdownContent} style={{minWidth:`${width}px`,maxWidth:`${width}px`}}>
           {options.map((option, index) => (
             <div
               key={index}
-              className={styles.dropdownItem}
+              className={option.value === selectedOption.value ? `${styles.dropdownItem} ${styles.active}` : styles.dropdownItem }
               onClick={(e) => {
                 callback(option.value);
                 setSelectedOption(Object.assign({}, option));
