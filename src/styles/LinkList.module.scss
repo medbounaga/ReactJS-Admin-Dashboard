@@ -1,0 +1,111 @@
+@import '../styles/globals.scss';
+
+.linkList {
+  user-select: none;
+  margin: 0px;
+  position: relative;
+  display: inline-flex;
+
+  &.active .linkList-btn {
+    background-color: $active-color;
+  }
+
+  &.active .linkList-content {
+    display: block;
+  }
+}
+
+.linkList-btn {
+  color: $active-text-color;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  min-width: 45px;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    font-size: 1.9rem;
+    color: #979797;
+  }
+
+  &:not(:disabled):hover {
+    background-color: $active-color;
+  }
+}
+
+.linkList-btn,
+.linkList-item {
+  color: $text-color-secendary;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@include query(mobile) {
+  .linkList-btn,
+  .linkList-item {
+    font-size: 0.65rem;
+  }
+}
+
+.linkList-content {
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  top: calc(50% + 5px);
+  right: 50%;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  z-index: 2;
+  text-align: left;
+  min-width: 180px;
+  border-radius: 5px;
+  border-left: 1px solid #e5e9f2;
+  border-right: 1px solid #e5e9f2;
+}
+
+.linkList-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.4s;
+  line-height: 1.3rem;
+  position: relative;
+  transition: all 0.4s;
+  line-height: 1.4rem;
+  border-top: 1px solid #e5e9f2;
+
+  &:first-child {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  &:hover {
+    background: #f4f4f4;
+  }
+}
+
+.linkList-itemTitle {
+  font-size: 0.9rem;
+  color: $text-color-secendary;
+}
+
+.linkList-itemIcon {
+  padding-right: 9px;
+  svg {
+    font-size: 1.2rem;
+    color: $text-color-secendary;
+  }
+}
