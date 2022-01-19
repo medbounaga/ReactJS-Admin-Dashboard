@@ -3,7 +3,7 @@
 .card {
 
     position: relative;
-    word-wrap: break-word;  
+    word-wrap: break-word;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -11,79 +11,95 @@
     border-radius: 0.6rem;
     min-width: 0;
     width: 100%;
-    background-clip: border-box;  
+    background-clip: border-box;
     box-shadow: 0 2px 0 rgb(90 97 105 / 11%), 0 4px 8px rgb(90 97 105 / 12%), 0 10px 10px rgb(90 97 105 / 6%), 0 7px 70px rgb(90 97 105 / 10%);
-    
+
 }
 
 
-.cardHeader{
+.cardInner {
+    padding: $padding;
+}
 
-    
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(0,0,0,.125);
+
+@include query(mobile) {
+    .cardInner {
+        padding: $padding * .75;
+    }
+}
+
+
+
+
+
+
+.cardHeader {
+
+    padding-bottom: $padding;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
     background-color: #fff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: 500;
-    color: #364a63;
-    }
-
 }
 
-.cardTitle{
-    @extend .h6   
+header.cardHeader:only-of-type {
+    margin-bottom: $padding;
 }
 
-.cardFooter{
-
-    padding: 0.5rem 1rem;
-    margin-top: 0;
-    border-top: 1px solid rgba(0,0,0,.125);
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: 0 0 0.6rem 0.6rem;
-}
-
-.cardFooter,
-.cardHeader{
-    padding: 1rem;
-}
-
-.cardHeader:first-child {
-    border-radius: 0.6rem 0.6rem 0 0;
-}
 
 .cardHeader:nth-child(2) {
 
-    background-color: #fbfbfb;
+
     border-bottom: 1px solid #e1e5eb;
-    padding: 0.5rem;
+    padding-top: $padding * .7;
+    padding-bottom: $padding * .7;
+    margin-bottom: $padding;
 }
 
+.cardTitle {
+    color: $text-color-primary;
+    font-weight: 600;
+    font-size: 1.05rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto;
+}
 
-.cardSection {
-
-    padding: 0.5rem 1rem;
+.cardFooter {
+    margin-top: 0;
+    border-top: 1px solid rgba(0, 0, 0, .125);
     background-color: #fff;
-    margin-bottom: 0;   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 
-
-.cardBody, 
-.cardFooter, 
-.cardHeader {
-
-    padding: 1rem;
+.cardBody {
+    background-color: #fff;
+    margin-bottom: 0;
 }
 
+
+
+.card,
+.cardBody {
+    border-radius: 5px;
+}
+
+.cardBody {
+
+    border-radius: 0 0 5px 5px;
+}
+
+
+.cardHeader:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.cardFooter {
+    border-radius: 0 0 5px 5px;
+}

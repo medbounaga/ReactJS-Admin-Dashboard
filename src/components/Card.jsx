@@ -1,49 +1,50 @@
 import styles from "../styles/Card.module.scss";
 
-export function Card({children, ...restProps}){
+export function Card({ children, ...restProps }) {
 
     return (
 
-        <div className={styles.card}>
-            {children}                     
-        </div>
-
-    )  
-}
-
-Card.Header = function CardHeader({title, children, ...restProps}){
-
-    return (
-        <div className={styles.cardHeader}>              
+        <div className={styles.card} {...restProps}>
+            <div className={styles.cardInner}>
                 {children}
+            </div>
+        </div>
+
+    )
+}
+
+Card.Header = function CardHeader({ title, children, ...restProps }) {
+
+    return (
+        <header className={styles.cardHeader} {...restProps}>
+            {children}
+        </header>
+    )
+}
+
+Card.Footer = function CardFooter({ title, children, ...restProps }) {
+
+    return (
+        <div className={styles.cardFooter} {...restProps}>
+            {children}
+
         </div>
     )
 }
 
-Card.Footer = function CardFooter({title, children, className, ...restProps}){
-
+Card.Title = function CardTitle({ title, ...restProps }) {
     return (
-        <div className={`${styles.cardFooter} ${className}`} >              
-                {children}
-                
-        </div>
-    )
-}
 
-Card.Title = function CardTitle({title, ...restProps}){
-    return (
-        
-        <span className={styles.cardTitle}>{title}</span>
-                
+        <h3 className={styles.cardTitle} {...restProps}>{title}</h3>
     )
 
 }
 
-Card.Body = function CardBody({children, ...restProps}){
+Card.Body = function CardBody({ children, ...restProps }) {
 
     return (
-        <div className={styles.cardBody}>
-               {children}
+        <div className={styles.cardBody} {...restProps}>
+            {children}
         </div>
     )
 }
