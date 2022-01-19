@@ -1,7 +1,8 @@
 .info .title {
-    font-size: .9375rem;
-    color: #364a63;
-    margin-bottom: 0.25rem;
+    
+    margin-bottom: 2px;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .info .price {
@@ -10,10 +11,18 @@
     margin-bottom: 1px;
 }
 
+.total{
+    margin-left: auto;
+    text-align: right;
+}
+
+
+
 .total .amount {
     font-size: .9375rem;
     color: #364a63;
     margin-bottom: 0.25rem;
+    font-weight: 500;
 }
 
 .total .count {
@@ -30,3 +39,12 @@
         border-radius: 4px;
     }
 }
+
+
+.itemWrapper{
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        line-height: 1.2;
+    }
