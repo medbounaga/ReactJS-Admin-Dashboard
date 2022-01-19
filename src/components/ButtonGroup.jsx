@@ -3,9 +3,8 @@ import styles from "../styles/ButtonGroup.module.scss";
 import PropTypes from 'prop-types';
 
 
-export const ButtonGroup = ({buttons, onClick, restProps}) => {
+export const ButtonGroup = ({buttons, activeButton, setActiveButton,  onClick, restProps}) => {
 
-  const [activeButton, setActiveButton] = useState(-1);
 
   return (
     <div className={styles.buttonGroup}>
@@ -16,10 +15,10 @@ export const ButtonGroup = ({buttons, onClick, restProps}) => {
           value={btn.value}
           onClick={(event) => {
             event.preventDefault();
-            setActiveButton(id);
+            setActiveButton(Object.assign({}, btn));
             onClick(btn.value);
           }}
-          className={id === activeButton ? styles.buttonActive : styles.button}
+          className={btn.value === activeButton.value ? styles.buttonActive : styles.button}
           
         >
           {btn.label}
