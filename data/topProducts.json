@@ -1,0 +1,76 @@
+[{
+    "day": [
+        {
+            "name": "Headset Standard",
+            "imgUrl": "headset-standard",
+            "price": 43,
+            "soldUnits": 76,
+            "salesValue": 254
+        },
+        {
+            "name": "iPad Mini",
+            "imgUrl": "iPad-mini",
+            "price": 56,
+            "soldUnits": 23,
+            "salesValue": 634
+        },
+        {
+            "name": "Laptop Customized",
+            "imgUrl": "laptop-customized",
+            "price": 23,
+            "soldUnits": 26,
+            "salesValue": 631
+        },
+        {
+            "name": "Mouse Wireless",
+            "imgUrl": "mouse-wireless",
+            "price": 154,
+            "soldUnits": 83,
+            "salesValue": 358
+        },
+        {
+            "name": "Router R430",
+            "imgUrl": "router-r430",
+            "price": 75,
+            "soldUnits": 53,
+            "salesValue": 598
+        }
+    ],
+    "week": [
+        {
+            "name": "RAM SR5",
+            "imgUrl": "ram-sr5",
+            "price": 29,
+            "soldUnits": 55,
+            "salesValue": 561
+        },
+        {
+            "name": "iPad Mini",
+            "imgUrl": "iPad-mini",
+            "price": 56,
+            "soldUnits": 67,
+            "salesValue": 1209
+        },
+        {
+            "name": "Router R430",
+            "imgUrl": "router-r430",
+            "price": 23,
+            "soldUnits": 65,
+            "salesValue": 875
+        },
+        {
+            "name": "Mouse Wireless",
+            "imgUrl": "mouse-wireless",
+            "price": 154,
+            "soldUnits": 99,
+            "salesValue": 437
+        },
+        {
+            "name": "Switch 24 Ports",
+            "imgUrl": "switch-24-ports",
+            "price": 75,
+            "soldUnits": 78,
+            "salesValue": 2178
+        }
+    ]
+}]
