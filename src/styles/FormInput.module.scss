@@ -1,0 +1,41 @@
+@import "../styles/globals.scss";
+
+
+.field{
+
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.label{
+    display: block;
+    margin-bottom: 6px;
+    color: $text-color-secendary;
+}
+
+.input{
+    display: block;
+    padding: 10px;
+    border: 1px solid #8b8b8b;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+
+    &:active,
+    &:focus
+    {
+        border: 2px solid black;
+    }
+
+    &:invalid[focused="true"]{
+        border: 1px solid red;
+    }
+
+}
+
+
+.error{
+    color: red
+}
