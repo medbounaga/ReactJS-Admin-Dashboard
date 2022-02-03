@@ -29,7 +29,9 @@ export const LinkList = ({ children, ...restProps }) => {
       </div>
       <div className={styles['linkList-content']}>
         {Children.map(children, (child) => {
-          return cloneElement(child, { setIsActive });
+          if(child !== null){
+            return cloneElement(child, { setIsActive });
+          }    
         })}
       </div>
     </div>
@@ -45,8 +47,8 @@ LinkList.Item = ({ title, icon, callback, setIsActive }) => {
         setIsActive(false);
       }}
     >
-      <span>{icon}</span>
-      <span>{title}</span>
+      <span className={styles['linkList-itemIcon']}>{icon}</span>
+      <span className={styles['linkList-itemTitle']}>{title}</span>
     </div>
   
   

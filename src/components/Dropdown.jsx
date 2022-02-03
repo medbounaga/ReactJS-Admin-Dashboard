@@ -7,11 +7,15 @@ export function Dropdown({
   width="200",
   className = '',
   options,
-  callback,
+  onChange,
+  label,
+  name,
   selectedOption,
   setSelectedOption,
+  errorMessage,
   ...restProps
 }) {
+
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -23,13 +27,14 @@ export function Dropdown({
       }}
       {...restProps}
     >
+      {label && (<label className={styles['form-label']}>{label}</label>)}
       <div
         className={styles.dropdownBtn}
         onClick={(e) => {
           setIsActive(!isActive);
         }}
       >
-        {selectedOption.label}
+        {selectedOption?.label ? selectedOption.label : "Select..."}
         <MdKeyboardArrowDown />
       </div>
       {isActive && (
@@ -39,7 +44,7 @@ export function Dropdown({
               key={index}
               className={option.value === selectedOption.value ? `${styles.dropdownItem} ${styles.active}` : styles.dropdownItem }
               onClick={(e) => {
-                callback(option.value);
+                if(typeof onChange === "function"){onChange(e)}
                 setSelectedOption(Object.assign({}, option));
                 setIsActive(false);
               }}
@@ -49,6 +54,7 @@ export function Dropdown({
           ))}
         </div>
       )}
+      { errorMessage && <div className={styles['error']}>{errorMessage}</div> }
     </div>
   );
 }

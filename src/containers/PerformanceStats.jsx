@@ -90,7 +90,6 @@ export function PerformanceStats() {
   }, [selectedPeriod]);
 
   function formatData(fetchedData, endPointName) {
-
     let currentPeriodValue = Math.trunc(Number(fetchedData.data[0]));
     let previousPeriodValue = Math.trunc(Number(fetchedData.data[1]));
 
@@ -105,7 +104,8 @@ export function PerformanceStats() {
 
     let percentage;
 
-    percentage = ((currentPeriodValue - previousPeriodValue) / previousPeriodValue) * 100;
+    percentage =
+      ((currentPeriodValue - previousPeriodValue) / previousPeriodValue) * 100;
 
     percentage = Number.parseFloat(percentage).toFixed(1);
 
@@ -114,7 +114,7 @@ export function PerformanceStats() {
       data: [currentPeriodValue, previousPeriodValue],
       labels: [currentPeriodName, previousPeriodName],
       difference: difference,
-      percentage: percentage
+      percentage: percentage,
     };
 
     return formatedData;
@@ -157,13 +157,13 @@ export function PerformanceStats() {
               options={menuOptions}
               selectedOption={selectedPeriod}
               setSelectedOption={setSelectedPeriod}
-              callback={callback}
+              onChange={callback}
             />
           </Card.Header>
           <Card.Body>
             <div className={styles.wrapper}>
-              {data.map((d, id) => (
-                <div className={styles.singleData}>
+              {data.map((d, index) => (
+                <div className={styles.singleData} key={index}>
                   <div className={styles.info}>
                     <div className={styles.title}>
                       <h3>{d.title}</h3>
@@ -190,7 +190,11 @@ export function PerformanceStats() {
                     </div>
                   </div>
                   <div className={styles.thumb}>
-                    <DonutChart data={d.data} labels={d.labels} className={styles.donutChart} />
+                    <DonutChart
+                      data={d.data}
+                      labels={d.labels}
+                      className={styles.donutChart}
+                    />
                   </div>
                 </div>
               ))}
