@@ -1,0 +1,82 @@
+@import "../styles/globals.scss";
+
+
+thead th {
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+thead th > div {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+
+thead th > div::before,
+thead th > div::after {
+    position: absolute;
+    bottom: 0.5em;
+    display: block;
+    opacity: .4;
+}
+
+
+thead th > div::before {
+    right: -13px;
+    top: -4px;
+    content: "↑";
+}
+
+thead th > div::after {
+    right: -22px;
+    top: -4px;
+    content: "↓";
+}
+
+
+thead th > div.ascending::after,
+thead th > div.descending::before {
+    opacity: 1;
+}
+
+
+
+.tb-col-hide,
+.tb-col-lg,
+.tb-col-mb,
+.tb-col-md,
+.tb-col-sm,
+.tb-col-xl,
+.tb-col-xs,
+.tb-col-xxl {
+    display: none !important;
+}
+
+
+@include query(mobile) {
+    .colSmHide {
+        display: none !important;
+    }
+}
+
+@include query(tablet) {
+    .colMdHide {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+  
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+.confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+
+
+
+.confirm-question{
+
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+
+}
+
+
+.confirm-buttons{
+    display: flex;
+    gap: 10px;
+}
+
