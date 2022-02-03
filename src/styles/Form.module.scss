@@ -1,0 +1,22 @@
+@import "../styles/globals.scss";
+
+.form-title{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+}
+
+.form-label{
+    display: block;
+    margin-bottom: 6px;
+    color: $text-color-secendary;
+}
+
+.form-text{
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+

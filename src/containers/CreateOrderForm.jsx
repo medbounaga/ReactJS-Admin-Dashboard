@@ -1,6 +1,6 @@
 import { Button, Select, Input, DateInput } from '../components';
 import { useForm } from '../hooks/useForm';
-import { validate } from '../containers/LoginFormValidationRules';
+import { validate } from '../containers/OrderFormValidationRules';
 import styles from '../styles/Form.module.scss';
 
 export const CreateOrderForm = ({ createOrder, closeModalHandler }) => {
