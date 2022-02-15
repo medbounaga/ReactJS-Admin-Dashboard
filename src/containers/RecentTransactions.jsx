@@ -42,7 +42,7 @@ export function RecentTransactions() {
 
   const defaultSortBy = { key: 'date', direction: 'descending' };
 
-  const [statusFilter, setStatusFilter] = useState(statusOptions[3]);
+  const [statusFilter, setStatusFilter] = useState(statusOptions[3].value);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(null);
   const [items, setItems] = useState([]);
@@ -86,11 +86,11 @@ export function RecentTransactions() {
   }, [endPoint]);
 
   useEffect(() => {
-    if (statusFilter.value === Status.ALL) {
+    if (statusFilter === Status.ALL) {
       setFilteredItems(items);
     } else {
       const dataFiltered = items.filter((payment) => {
-        return payment.status === statusFilter.value;
+        return payment.status === statusFilter;
       });
 
       setFilteredItems(dataFiltered);
@@ -228,10 +228,14 @@ export function RecentTransactions() {
           </Card.Header>
           <Card.Header>
             <ButtonGroup
+              size='small'
+              color='primary'
+              variant='outlined'
               activeButton={statusFilter}
-              setActiveButton={setStatusFilter}
               buttons={statusOptions}
-              onClick={() => {}}
+              onClick={(activeBtnValue) => {
+                setStatusFilter(activeBtnValue);
+              }}
             />
           </Card.Header>
           <Card.Body>

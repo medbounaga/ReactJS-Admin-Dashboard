@@ -1,31 +1,42 @@
-import { useState } from 'react';
-import styles from "../styles/ButtonGroup.module.scss";
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import styles from '../styles/ButtonGroup.module.scss';
+import { Button } from './Button';
 
+export const ButtonGroup = ({
+  buttons,
+  activeButton,
+  variant,
+  size,
+  color,
+  onClick,
+  ...restProps
+}) => {
+  console.log('ButtonGroup Redender');
+  const [activeBtn, setActiveBtn] = useState(buttons[0].value);
 
-export const ButtonGroup = ({buttons, activeButton, setActiveButton,  onClick, restProps}) => {
-
+  useEffect(() => {
+    setActiveBtn(activeButton);
+  }, [activeButton]);
 
   return (
-    <div className={styles.buttonGroup}>
+    <div className={styles.buttonGroup} {...restProps}>
       {buttons.map((btn, id) => (
-        <button
+        <Button
           key={id}
-          name={btn.value}
-          value={btn.value}
-          onClick={(event) => {
-            event.preventDefault();
-            setActiveButton(Object.assign({}, btn));
-            onClick(btn.value);
+          size={size}
+          variant={variant}
+          color={color}
+          isActive={btn.value === activeBtn}
+          onClick={() => {
+            if (btn.value !== activeBtn) {
+              setActiveBtn(Object.assign({}, btn));
+              onClick(btn.value);
+            }
           }}
-          className={btn.value === activeButton.value ? styles.buttonActive : styles.button}
-          
         >
           {btn.label}
-        </button>
+        </Button>
       ))}
     </div>
   );
 };
-
-

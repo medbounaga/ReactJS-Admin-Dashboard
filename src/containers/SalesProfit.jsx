@@ -39,9 +39,9 @@ export function SalesProfit() {
   ];
 
   const [selectedInterval, setSelectedInterval] = useState(
-    intervalSwitchButtons[0]
+    intervalSwitchButtons[0].value
   );
-  const [activeChart, setActiveChart] = useState(chartSwitchButtons[0]);
+  const [activeChart, setActiveChart] = useState(chartSwitchButtons[0].value);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(null);
@@ -54,7 +54,7 @@ export function SalesProfit() {
       apiCalls.push(
         api.get(`${endPoint.url}`, {
           params: {
-            period: selectedInterval.value,
+            period: selectedInterval,
           },
         })
       );
@@ -110,7 +110,7 @@ export function SalesProfit() {
   function getPeriods(interval) {
     let periods = [];
 
-    switch (selectedInterval.value) {
+    switch (selectedInterval) {
       case intervals.WEEK:
         periods = dates.getWeeks(interval);
         break;
@@ -148,23 +148,32 @@ export function SalesProfit() {
           </Card.Header>
           <Card.Header>
             <ButtonGroup
+              size='small'
+              color='primary'
+              variant='outlined'
               activeButton={activeChart}
-              setActiveButton={setActiveChart}
               buttons={chartSwitchButtons}
-              onClick={() => {}}
+              onClick={(activeBtnValue) => {
+                setActiveChart(activeBtnValue);
+              }}
             />
 
             <ButtonGroup
+              size='small'
+              color='primary'
+              variant='outlined'
               activeButton={selectedInterval}
-              setActiveButton={setSelectedInterval}
               buttons={intervalSwitchButtons}
-              onClick={onPeriodChange}
+              onClick={(activeBtnValue) => {
+                setSelectedInterval(activeBtnValue);
+                onPeriodChange(activeBtnValue);
+              }}
             />
           </Card.Header>
 
           <Card.Body style={{ paddingTop: '2.5vh' }}>
             {data &&
-              (activeChart.value === charts.BAR ? (
+              (activeChart === charts.BAR ? (
                 <BarChart data={data} />
               ) : (
                 <LineChart data={data} />
