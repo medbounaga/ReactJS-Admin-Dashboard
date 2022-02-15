@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import styles from '../styles/Modal.module.scss';
 import { MdClose } from 'react-icons/md';
 
@@ -30,7 +30,10 @@ export const Modal = ({ children, isOpen, closeModalHandler }) => {
         </div>
       </div>
       <div
-        onClick={(e)=>{console.log('backdrop clicked');closeModalHandler()}}
+        onClick={(e) => {
+          console.log('backdrop clicked');
+          closeModalHandler();
+        }}
         className={
           isOpen
             ? `${styles['modal-backdrop']} ${styles['model-open']}`

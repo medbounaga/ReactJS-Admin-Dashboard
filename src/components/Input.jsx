@@ -1,6 +1,6 @@
 import '../styles/globals.scss';
 import styles from '../styles/FormInput.module.scss';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Input = (props) => {
   const {
@@ -13,32 +13,33 @@ export const Input = (props) => {
     ...restProps
   } = props;
 
+  const [inputValue, setInputValue] = useState(value);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
+  console.log('value');
+  console.log(value);
+
   const iconClasses =
     icon &&
     (iconPosition === 'left'
       ? `${styles['icon-left']} ${styles['has-icon']}`
       : `${styles['icon-right']} ${styles['has-icon']}`);
 
-  const [inputValue, setInputValue] = useState('');
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
-
   return (
     <div className={styles['field']}>
-      <label className={styles['label']}>{label}</label>
+      {label && <label className={styles['label']}>{label}</label>}
 
       <div className={`${styles['input-wrapper']} ${iconClasses}`}>
         {icon && <div className={styles['icon-wrapper']}>{icon}</div>}
         <input
-          value={inputValue}
           onChange={(e) => {
-            if (typeof onChange === 'function') {
-              onChange(e);
-            }
+            onChange(e);
             setInputValue(e.target.value);
           }}
+          value={inputValue}
           className={styles['input']}
           {...restProps}
         ></input>

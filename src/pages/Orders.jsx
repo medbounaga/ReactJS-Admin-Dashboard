@@ -12,9 +12,10 @@ import {
 import api from '../api/analytics';
 import styles from '../styles/RecentTransactions.module.scss';
 import useSortableData from '../hooks/useSortableData';
-import { HiOutlineEye, HiOutlineTrash } from 'react-icons/hi';
+import { HiOutlineEye, HiOutlineTrash, HiOutlinePlus } from 'react-icons/hi';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
+import { BiSearch } from 'react-icons/bi';
 import { openModal } from '../store/modalSlice';
 
 export function Orders() {
@@ -49,7 +50,7 @@ export function Orders() {
 
   const defaultSortBy = { key: 'date', direction: 'descending' };
 
-  const [statusFilter, setStatusFilter] = useState(statusOptions[3]);
+  const [statusFilter, setStatusFilter] = useState(statusOptions[3].value);
   const [globalFilter, setGlobalFilter] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(null);
@@ -64,7 +65,7 @@ export function Orders() {
   const [currentPaginationItems, setCurrentPaginationItems] = useState(null);
   const [resetPagination, setResetPagination] = useState(false);
 
-  const itemsPerPage = useMemo(() => 5, []);
+  const itemsPerPage = useMemo(() => 10, []);
 
   useEffect(() => {
     const getDataFromEndpoint = async () => {
@@ -94,14 +95,12 @@ export function Orders() {
   }, [endPoint]);
 
   useEffect(() => {
-    setResetPagination(true);
-
     let itemsFiltered = [];
-    if (statusFilter.value === Status.ALL) {
+    if (statusFilter === Status.ALL) {
       itemsFiltered = items;
     } else {
       itemsFiltered = items.filter((order) => {
-        return order.status === statusFilter.value;
+        return order.status === statusFilter;
       });
     }
 
@@ -259,175 +258,204 @@ export function Orders() {
   };
 
   return (
-    <div className='row'>
-      <div className='col-12 col-sm-12'>
-        <Card>
-          {isLoading ? (
-            <Loader height={15} />
-          ) : loadingError ? (
-            <div>Error: </div>
-          ) : (
-            <>
-              <Card.Header>
-                <Card.Title title='Orders' />
-              </Card.Header>
-              <Card.Header>
-                <Button
-                  callback={() =>
-                    dispatch(
-                      openModal({
-                        componentName: 'CreateOrderForm',
-                        childrenProps: { createOrder: createOrder },
-                      })
-                    )
-                  }
-                >
-                  +
-                </Button>
-                <Input
-                  placeholder='filter'
-                  onChange={(e) => {
-                    setGlobalFilter(e.target.value);
-                  }}
-                />
-                <ButtonGroup
-                  activeButton={statusFilter}
-                  setActiveButton={setStatusFilter}
-                  buttons={statusOptions}
-                  onClick={() => {}}
-                />
-              </Card.Header>
-              <Card.Body>
-                <Table>
-                  <Table.Head>
-                    <Table.TR>
-                      {thData.map(({ title, id }) => (
-                        <Table.TH key={title} className={getHideClassNames(id)}>
-                          <div
-                            onClick={() => requestSort(id)}
-                            className={getSortingClassNames(id)}
+    <>
+      <div className='row'>
+        <div className='col-12 col-sm-12'>
+          <div className='page-header'>
+            <div className='page-header-title'>Orders</div>
+            <div className='page-header-content'>
+              <Button
+                color='primary'
+                size='medium'
+                icon={<HiOutlinePlus />}
+                callback={() =>
+                  dispatch(
+                    openModal({
+                      componentName: 'CreateOrderForm',
+                      childrenProps: { createOrder: createOrder },
+                    })
+                  )
+                }
+              >
+                New Order
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='col-12 col-sm-12'>
+          <Card disableShadow>
+            {isLoading ? (
+              <Loader height={15} />
+            ) : loadingError ? (
+              <div>Error: </div>
+            ) : (
+              <>
+                <Card.Header>
+                  <Input
+                    placeholder='filter'
+                    icon={<BiSearch />}
+                    iconPosition='right'
+                    onChange={(e) => {
+                      setGlobalFilter(e.target.value);
+                      setResetPagination(true);
+                    }}
+                  />
+                  <ButtonGroup
+                    size='medium'
+                    color='primary'
+                    variant='outlined'
+                    activeButton={statusFilter}
+                    buttons={statusOptions}
+                    onClick={(activeBtnValue) => {
+                      setStatusFilter(activeBtnValue);
+                      setResetPagination(true);
+                    }}
+                  />
+                </Card.Header>
+                <Card.Body>
+                  <Table>
+                    <Table.Head>
+                      <Table.TR>
+                        {thData.map(({ title, id }) => (
+                          <Table.TH
+                            key={title}
+                            className={getHideClassNames(id)}
                           >
-                            {title}
-                          </div>
-                        </Table.TH>
-                      ))}
-                    </Table.TR>
-                  </Table.Head>
-                  <Table.Body>
-                    {currentPaginationItems &&
-                      currentPaginationItems.map((d, id) => (
-                        <Table.TR key={id}>
-                          <Table.TD>
-                            <span>{d.orderId}</span>
-                          </Table.TD>
-                          <Table.TD className={styles.colSmHide}>
-                            <span>{moment(d.date).format('MM/DD/YYYY')}</span>
-                          </Table.TD>
-                          <Table.TD className={styles.colSmHide}>
-                            <span>
-                              <img
-                                src={`/img/partners/${d.imgUrl}.png`}
-                                alt=''
-                              />
-                            </span>
-                            <span>{d.customer}</span>
-                          </Table.TD>
+                            <div
+                              onClick={() => requestSort(id)}
+                              className={getSortingClassNames(id)}
+                            >
+                              {title}
+                            </div>
+                          </Table.TH>
+                        ))}
+                      </Table.TR>
+                    </Table.Head>
+                    <Table.Body>
+                      {currentPaginationItems &&
+                        currentPaginationItems.map((d, id) => (
+                          <Table.TR key={id}>
+                            <Table.TD>
+                              <span>{d.orderId}</span>
+                            </Table.TD>
+                            <Table.TD className={styles.colSmHide}>
+                              <span>{moment(d.date).format('MM/DD/YYYY')}</span>
+                            </Table.TD>
+                            <Table.TD className={styles.colSmHide}>
+                              <span>
+                                <img
+                                  src={`/img/partners/${d.imgUrl}.png`}
+                                  alt=''
+                                />
+                              </span>
+                              <span>{d.customer}</span>
+                            </Table.TD>
 
-                          <Table.TD className={styles.colMdHide}>
-                            <span>{d.purchased}</span>
-                          </Table.TD>
-                          <Table.TD>
-                            <span>{d.total}</span>
-                          </Table.TD>
-                          <Table.TD>
-                            <span className={getStatusClassName(d.status)}>
-                              {d.status}
-                            </span>
-                          </Table.TD>
-                          <Table.TD>
-                            <LinkList>
-                              {d.status === Status.PENDING && (
+                            <Table.TD className={styles.colMdHide}>
+                              <span>{d.purchased}</span>
+                            </Table.TD>
+                            <Table.TD>
+                              <span>{d.total}</span>
+                            </Table.TD>
+                            <Table.TD>
+                              <span className={getStatusClassName(d.status)}>
+                                {d.status}
+                              </span>
+                            </Table.TD>
+                            <Table.TD>
+                              <LinkList>
+                                {d.status === Status.PENDING && (
+                                  <LinkList.Item
+                                    title='Confirm'
+                                    icon={<HiOutlineEye />}
+                                    callback={() =>
+                                      dispatch(
+                                        openModal({
+                                          componentName: 'ConfirmAction',
+                                          childrenProps: {
+                                            handleConfirm: () =>
+                                              confirmOrder(d.orderId),
+                                          },
+                                        })
+                                      )
+                                    }
+                                  />
+                                )}
                                 <LinkList.Item
-                                  title='Confirm'
+                                  title='View'
                                   icon={<HiOutlineEye />}
                                   callback={() =>
                                     dispatch(
                                       openModal({
-                                        componentName: 'ConfirmAction',
+                                        componentName: 'ViewOrder',
                                         childrenProps: {
-                                          handleConfirm: () =>
-                                            confirmOrder(d.orderId),
+                                          order: {
+                                            ...d,
+                                            date: moment(d.date).format(
+                                              'MM/DD/YYYY'
+                                            ),
+                                          },
                                         },
                                       })
                                     )
                                   }
                                 />
-                              )}
-                              <LinkList.Item
-                                title='View'
-                                icon={<HiOutlineEye />}
-                                callback={() =>
-                                  dispatch(
-                                    openModal({
-                                      componentName: 'ViewOrder',
-                                      childrenProps: {
-                                        order: {
-                                          ...d,
-                                          date: moment(d.date).format(
-                                            'MM/DD/YYYY'
-                                          ),
-                                        },
-                                      },
-                                    })
-                                  )
-                                }
-                              />
 
-                              <LinkList.Item
-                                title='Delete'
-                                icon={<HiOutlineTrash />}
-                                callback={() => resquestDeleteOrder(d)}
-                              />
-                              {(d.status === Status.PENDING ||
-                                d.status === Status.DELIVERED) && (
                                 <LinkList.Item
-                                  title='Cancel'
+                                  title='Delete'
                                   icon={<HiOutlineTrash />}
-                                  callback={() =>
-                                    dispatch(
-                                      openModal({
-                                        componentName: 'ConfirmAction',
-                                        childrenProps: {
-                                          handleConfirm: () =>
-                                            cancelOrder(d.orderId),
-                                        },
-                                      })
-                                    )
-                                  }
+                                  callback={() => resquestDeleteOrder(d)}
                                 />
-                              )}
-                            </LinkList>
-                          </Table.TD>
-                        </Table.TR>
-                      ))}
-                  </Table.Body>
-                  <Table.Foot></Table.Foot>
-                </Table>
-                {!sortedItems.length && (
-                  <div className={styles.empty}>No items found</div>
-                )}
-                <Pagination
-                  items={sortedItems}
-                  setCurrentItems={setCurrentPaginationItems}
-                  itemsPerPage={itemsPerPage}
-                  resetPagination={resetPagination}
-                  setResetPagination={setResetPagination}
-                />
-              </Card.Body>
-            </>
-          )}
-        </Card>
+                                {(d.status === Status.PENDING ||
+                                  d.status === Status.DELIVERED) && (
+                                  <LinkList.Item
+                                    title='Cancel'
+                                    icon={<HiOutlineTrash />}
+                                    callback={() =>
+                                      dispatch(
+                                        openModal({
+                                          componentName: 'ConfirmAction',
+                                          childrenProps: {
+                                            handleConfirm: () =>
+                                              cancelOrder(d.orderId),
+                                          },
+                                        })
+                                      )
+                                    }
+                                  />
+                                )}
+                              </LinkList>
+                            </Table.TD>
+                          </Table.TR>
+                        ))}
+                    </Table.Body>
+                  </Table>
+                  {!sortedItems.length && (
+                    <div className={styles.empty}>No items found</div>
+                  )}
+                </Card.Body>
+              </>
+            )}
+          </Card>
+        </div>
       </div>
-    </div>
+      <div className='row'>
+        <div className='col-12 col-sm-12'>
+          <Card disableShadow>
+            <Card.Body>
+              <Pagination
+                items={sortedItems}
+                setCurrentItems={setCurrentPaginationItems}
+                itemsPerPage={itemsPerPage}
+                resetPagination={resetPagination}
+                setResetPagination={setResetPagination}
+              />
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
+    </>
   );
 }

@@ -153,6 +153,9 @@ export function PerformanceStats() {
           <Card.Header>
             <Card.Title title='Sales vs Profit' />
             <Dropdown
+              size='small'
+              variant='outlined'
+              color='primary'
               width='220'
               options={menuOptions}
               selectedOption={selectedPeriod}

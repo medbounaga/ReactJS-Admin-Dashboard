@@ -12,6 +12,7 @@ export const CreateOrderForm = ({ createOrder, closeModalHandler }) => {
 
   const defaultValues = {
     date: date,
+    customer: 'customer',
     status: statusOptions[1].value,
   };
 
@@ -28,6 +29,8 @@ export const CreateOrderForm = ({ createOrder, closeModalHandler }) => {
     defaultValues
   );
 
+  console.log(values);
+
   const inputs = {
     customer: {
       id: 1,
@@ -37,7 +40,7 @@ export const CreateOrderForm = ({ createOrder, closeModalHandler }) => {
       errorMessage: errors.customer,
       label: 'Customer Name',
       required: true,
-      value: values.customer || '',
+      value: values.customer,
     },
     date: {
       id: 2,

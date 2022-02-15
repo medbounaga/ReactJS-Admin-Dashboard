@@ -100,6 +100,9 @@ export function TopProducts() {
           <Card.Header>
             <Card.Title title='Selling Products' />
             <Dropdown
+              size='small'
+              variant='outlined'
+              color='primary'
               width='155'
               options={menuOptions}
               selectedOption={selectedPeriod}

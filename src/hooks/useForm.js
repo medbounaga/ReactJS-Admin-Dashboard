@@ -20,10 +20,13 @@ export const useForm = (callback, validate, defaultValues = {}) => {
   };
 
   const handleChange = (event) => {
+    console.log('handleChange');
+    console.log(event.target.value);
     setValues((values) => ({
-      [event.target.name]: event.target.value,
       ...values,
+      [event.target.name]: event.target.value,
     }));
+    console.log(values);
   };
 
   return {

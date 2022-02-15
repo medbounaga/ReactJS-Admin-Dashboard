@@ -1,5 +1,6 @@
 import '../styles/globals.scss';
 import styles from '../styles/ConfirmAction.module.scss';
+import { Button } from '../components';
 
 export const ConfirmAction = ({
   children,
@@ -10,18 +11,25 @@ export const ConfirmAction = ({
     <div className={styles['confirm']}>
       <div className={styles['confirm-question']}>Are you sure?</div>
       <div className={styles['confirm-buttons']}>
-        <button 
-          className='btn btn-secondary btn-md'
+        <Button
+          color='secondary'
+          size='medium'
+          variant='outlined'
           onClick={() => {
             closeModalHandler();
-            handleConfirm();      
+            handleConfirm();
           }}
         >
           Yes
-        </button>
-        <button className='btn btn-primary btn-md' onClick={closeModalHandler}>
+        </Button>
+        <Button
+          color='primary'
+          size='medium'
+          variant='filled'
+          onClick={closeModalHandler}
+        >
           No
-        </button>
+        </Button>
       </div>
     </div>
   );

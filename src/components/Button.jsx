@@ -3,13 +3,14 @@ export const Button = ({
   children,
   callback,
   className = '',
-  color,
-  size,
-  variant,
+  color = 'primary',
+  size = 'medium',
+  variant = 'filled',
   icon,
-  isActive = false,
+  isActive,
   ...restProps
 }) => {
+  console.log('Button Redender');
   const getColorClass = () => {
     switch (color) {
       case 'primary':
@@ -17,7 +18,7 @@ export const Button = ({
       case 'secondary':
         return styles['btn-secondary'];
       default:
-        return styles['btn-primary'];
+        throw Error('Unknown Button Color: ' + color);
     }
   };
 
@@ -28,7 +29,7 @@ export const Button = ({
       case 'outlined':
         return styles['btn-outlined'];
       default:
-        return styles['btn-filled'];
+        throw Error('Unknown Button Variant: ' + variant);
     }
   };
 
@@ -41,7 +42,7 @@ export const Button = ({
       case 'medium':
         return styles['btn-md'];
       default:
-        return styles['btn-md'];
+        throw Error('Unknown Button Size: ' + size);
     }
   };
 
@@ -52,8 +53,7 @@ export const Button = ({
 
   return (
     <button
-      onClick={(e) => {
-        e.preventDefault();
+      onClick={() => {
         if (typeof callback === 'function') {
           callback();
         }

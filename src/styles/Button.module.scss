@@ -20,7 +20,7 @@ button {
   vertical-align: middle;
   user-select: none;
   font-size: 0.95rem;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: 0.15s ease-in-out;
 
   &:hover {
@@ -85,12 +85,6 @@ button {
 
     &.btn-filled.active {
       background-color: #45a577;
-      border: 1px solid #43c888;
-      color: #fff;
-    }
-
-    &.btn-grouped.btn-filled {
-      background-color: #43c888;
       border: 1px solid #43c888;
       color: #fff;
     }
